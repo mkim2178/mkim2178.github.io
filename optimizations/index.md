@@ -5,4 +5,4 @@ title: Optimizations
 
 # Optimizations
 
-[Transfer Learning](optimizations/transfer_learning.md)
+- [Transfer Learning](optimizations/transfer_learning.md)
