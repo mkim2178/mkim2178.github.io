@@ -1,2 +1,2 @@
-# Machine-Learning-Notes
-This is a note where I summarized machine learning concepts
+# My Personal Website
+This is a website where I share my learnings of ML, DL, and Probability.
