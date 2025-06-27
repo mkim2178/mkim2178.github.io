@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Linear Programming: Formations and Transformations
+title: "Linear Programming: Formations and Transformations"
 ---
 How can we represent linear Programs?
 
