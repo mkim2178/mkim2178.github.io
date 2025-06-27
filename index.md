@@ -8,8 +8,8 @@ This is my personal site where I share what I'm learning in machine learning, de
 
 
 ## Topics
-# [Algorithms](algorithms/)
-# [Evaluation](evaluations/)
-# [Probability](probability/)
-# [Optimization](optimizations/)
-# Others
+### [Algorithms](algorithms/)
+### [Evaluation](evaluations/)
+### [Probability](probability/)
+### [Optimization](optimizations/)
+### Others
