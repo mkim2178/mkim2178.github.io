@@ -42,17 +42,18 @@ Every linear program can be transformed into a standard form using the following
 - A minimization objective can be converted to a maximization objective by negating it:
 
 $$
-\text{Minimize:}\space z=c_1x_1 + \cdots + c_nx_n \\
+\text{Minimize:}\space z=c_1x_1 + \cdots + c_nx_n
+
 \text{Maximize:}\space z'= -z = -c_1x_1-\cdots-c_nx_n
 $$
 
 - An inequality constraint of the form:
 
-$$
-a_{i1}x_1+\cdots+a_{in}x_n \le b_i
-$$
+    $$
+    a_{i1}x_1+\cdots+a_{in}x_n \le b_i
+    $$
 
-can be converted into an equality by adding a nonnegative *slack* variable $s$ to convert it to an equality constraint:
+    can be converted into an equality by adding a nonnegative *slack* variable $s$ to convert it to an equality constraint:
 
 $$
 a_{i1}x_1+\cdots+a_{in}x_n + s = b_i, \space s \ge 0
@@ -64,7 +65,7 @@ $$
     a_{i1}x_1+\cdots+a_{in}x_n \ge b_i
     $$
         
-can be converted into an equality by subtracting a nonnegative *surplus* variable $s$ to convert it to an equality constraint:
+    can be converted into an equality by subtracting a nonnegative *surplus* variable $s$ to convert it to an equality constraint:
     
 $$
 a_{i1}x_1+\cdots+a_{in}x_n-s=b_i,\space s \ge 0
