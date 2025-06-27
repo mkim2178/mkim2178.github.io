@@ -1,4 +1,3 @@
-## Linear Programming: Formations and Transformations
 How can we represent linear Programs?
 
 Linear programs can be expressed in various forms depending on the structure of the problem. However, to maintain consistency and simplify the solving process, any linear program can be converted into a *standard form*.
