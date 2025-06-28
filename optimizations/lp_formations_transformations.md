@@ -78,4 +78,4 @@ x_j = x_j^{+}-x_j^{-},\space \text{where} \space x_j^{+} \ge 0, \space x_j^{-} \
 $$
 
 ---
-This summary is based on *Linear Programming Notes* [https://math.mit.edu/~goemans/18310S15/lpnotes310.pdf] by Michel Goemans, MIT
+Based on lecture notes by Michel Goemans for MIT 18.310A ([MIT OCW link](https://ocw.mit.edu/courses/18-310-principles-of-discrete-applied-mathematics-fall-2013/resources/mit18_310f13_ch8/)), licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/).
