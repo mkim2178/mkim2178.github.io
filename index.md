@@ -9,6 +9,7 @@ This is my personal site where I share what I'm learning in machine learning, de
 
 ## Topics
 ### [Algorithms](algorithms/)
+### [Data Preparation](data_preparation/)
 ### [Evaluation](evaluations/)
 ### [Probability](probability/)
 ### [Optimization](optimizations/)
