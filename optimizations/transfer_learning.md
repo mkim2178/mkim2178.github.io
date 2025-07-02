@@ -8,4 +8,4 @@ However, the key caution when using transfer learning is that the original task 
 
 
 ---
-This summary is based on Andrew Ng’s *Machine Learning Specialization* [https://www.coursera.org/specializations/machine-learning-introduction] on Coursera.
+This summary is based on Andrew Ng’s [*Machine Learning Specialization*](https://www.coursera.org/specializations/machine-learning-introduction) on Coursera.
