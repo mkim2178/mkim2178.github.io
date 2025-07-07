@@ -48,13 +48,77 @@ $$
         
     - the objective function $z$ should be re-written to fit into our tableau — makes more straightforward to track how the objective function changes as we pivot:
         - $z = 8x_1 + 12x_2 → z - 8x_1 - 12x_2 = 0$
-4. Now we’re all set to generate a tableau:
 
-| **Basis** | $x_1$ | $x_2$ | $x_3$ | $x_4$ | $\text{RHS}$ |
-| --- | --- | --- | --- | --- | --- |
-| $x_3$ | 2 | 4 | 1 | 0 | 6 |
-| $x_4$ | 1 | 3 | 0 | 1 | 4 |
-| $z$ | -8 | -12 | 0 | 0 | 0 |
+4. Now we’re all set to convert the linear program into a tableau format:
+
+    | **Basis** | $x_1$ | $x_2$ | $x_3$ | $x_4$ | **RHS** |
+    |:---------:|:-----:|:-----:|:-----:|:-----:|:-------:|
+    |   $x_3$   |   $2$   |   $4$   |   $1$   |   $0$   |    $6$    |
+    |   $x_4$   |   $1$   |   $3$   |   $0$   |   $1$   |    $4$    |
+    |    $z$    |  $-8$   | $-12$   |   $0$   |   $0$   |    $0$    |
+
+    - Let B is the set of basis: $B = {x_3, x_4}$
+    - Let N is the set of non-basis: $N = {x_1, x_2}$
+
+5. At this moment, we will start the iteration of computation of Simplex Method and will update the entering and leaving variables.
+
+    **Iteration 1:**
+
+    1. First, we have to find the pivot column. Since we want to maximize, we look for the most negative reduced cost. This indicates the non-basic variable whose increase will most improve $z$. From this example, our pivot column will be the second column, where the non-basic element $x_2$ is located.
+
+    2. Next, we should select the pivot row. To select the pivot row, we should compare quotients that are created by the minimum ratio test from each row (**note that only ratios with positive denominators are considered!**):
+
+        $$
+        \text{minimum ratio test:} \space \frac{\text{RHS}}{\text{pivot column coefficient}}
+        $$
+
+        - $\frac{6}{4} = 1.5$
+        - $\frac{4}{3} \approx 1.3$
+    
+    3. Since $\frac{6}{4} > \frac{4}{3}$, our pivot row will be row 2 because we should select the row that has the smallest quotient (the main purpose of this example is we should increase the value of the objective function so we need the element that has the smallest quotient)
+
+    4. Now, we can select the pivot element which is the intersection of pivot column and row. We can now determine our new entering and leaving variables in current iteration and update our basis $B$:
+
+        - We should make our pivot element to 1 so we’re pivoting correctly (we divide our pivot row with 3):
+            - $\frac{1}{3}x_1 + x_2 + \frac{1}{3}x_4 = \frac{4}{3}$
+
+        - We should re-write the other rows with our new $x_2$ where $x_2 = \frac{4}{3} - \frac{1}{3}x_1 - \frac{1}{3}x_4$:
+
+            $$
+            \begin{aligned}
+            2x_1 + 4x_2 + x_3 &= 6 \\
+            2x_1 + 4\left(\frac{4}{3} - \frac{1}{3}x_1 - \frac{1}{3}x_4\right) + x_3 &= 6 \\
+            2x_1 + \frac{16}{3} - \frac{4}{3}x_1 - \frac{4}{3}x_4 + x_3 &= 6 \\
+            \frac{2}{3}x_1 + x_3 - \frac{4}{3}x_4 &= \frac{2}{3} \quad \text{(new row 1)}
+            \end{aligned}
+            $$
+
+        - We also have to re-write the $z$ with our new $x_2$:
+
+            $$
+            \begin{aligned}
+            z - 8x_1 - 12x_2 &= 0 \\
+            z - 8x_1 - 12\left(\frac{4}{3} - \frac{1}{3}x_1 - \frac{1}{3}x_4\right) &= 0 \\
+            z - 8x_1 - 16 + 4x_1 + 4x_4 &= 0 \\
+            z - 4x_1 + 4x_4 &= 16 \quad \text{(new z)}
+            \end{aligned}
+            $$
+
+        - At this moment, our $x_2$, is the new **entering variable** (our new basic variable). Since our $x_4$ has been replaced, this is determined as a **leaving variable** (our new non-basic variable)
+
+        - Let’s update our tableau:
+
+            | **Basis** |  $x_1$  | $x_2$ | $x_3$ |   $x_4$   |  **RHS**  |
+            |:---------:|:-------:|:-----:|:-----:|:---------:|:---------:|
+            |   $x_3$   |  $\frac{2}{3}$  |   $0$   |   $1$   |  $-\frac{4}{3}$  |  $\frac{2}{3}$  |
+            |   $x_2$   |  $\frac{1}{3}$  |   $1$   |   $0$   |  $\frac{1}{3}$   |  $\frac{4}{3}$  |
+            |    $z$    |    $-4$   |   $0$   |   $0$   |     $4$     |    $16$     |
+
+            - $B = {x_3, x_2}$
+            - $N = {x_1, x_4}$
+    
+
+
 
 ⚠️ **Work in Progress:** This note is not yet complete. Please check back later.
 
