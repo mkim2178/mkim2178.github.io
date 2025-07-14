@@ -114,13 +114,139 @@ $$
             |   $x_2$   |  $\frac{1}{3}$  |   $1$   |   $0$   |  $\frac{1}{3}$   |  $\frac{4}{3}$  |
             |    $z$    |    $-4$   |   $0$   |   $0$   |     $4$     |    $16$     |
 
-            - $B = {x_3, x_2}$
-            - $N = {x_1, x_4}$
+            $$
+            \begin{aligned}
+            \text{Basis}: \space B &= \{ x_3, x_2 \} \\
+            \text{Non-Basis}: \space N &= \{ x_1, x_4 \}
+            \end{aligned}
+            $$
+
+    **Iteration 2**
+    1. Find the pivot column. As I mentioned from **Iteration 1**, we should find the most negative reduced cost. At this moment, we should select $x_1$ column as a pivot column because it has $-4$ as a cost coefficent.
+
+    2. Next, we select the pivot row to by using minimum ratio test (also mentioned from **Iteration 1**). 
+
+        - $\frac{\frac{2}{3}}{\frac{2}{3}} = 1$
+        - $\frac{\frac{4}{3}}{\frac{1}{3}} = 4$
     
+    3. Since $1 < 4$, our pivot row will be row 1 (we select the row that has the smallest quotient-- compare quotients with each other after minimum ratio test)
 
+    4. Now, select our new pivot element (the intersection of pivot column and row) and determine our new entering/leaving variables in current iteration to update our basis $B$ (and non basis $N$):
 
+        - Convert our pivot element to 1 to correctly start the pivoting (multiply by $\frac{3}{2}$):
+            - $x_1 + \frac{3}{2}x_2 - 2x_4 = 1$
+        
+        - Rewrite other rows with our new $x_1$ by solving the equation:
 
-⚠️ **Work in Progress:** This note is not yet complete. Please check back later.
+            $$
+            \begin{aligned} \\
+            \frac{1}{3}x_1 + x_2 + \frac{1}{3}x_4 &= \frac{4}{3} \\
+            \frac{1}{3}(1 - \frac{3}{2}x_3+2x_4) + x_2 + \frac{1}{3}x_4 &= \frac{4}{3} \\
+            \frac{1}{3} - \frac{1}{3}x_3 + \frac{2}{3}x_4 + x_2 + \frac{1}{3}x_4 &= \frac{4}{3} \\
+            x_2 - \frac{1}{2}x_3 + x_4 &= 1 \quad \text{(new row 2)}
+            \end{aligned}
+            $$
+
+        - Rewrite our $z$ with our new $x_1$:
+
+            $$
+            \begin{aligned} \\
+            z - 4x_1 + 4x_4 &= 16 \\
+            z - 4(1 - \frac{3}{2}x_3 + 2x_4) + 4x_4 &= 16 \\
+            z - 4 + 6x_3 - 8x_4 + 4x_4 &= 16 \\
+            z + 6x_3 - 4x_4 &= 20 \quad \text{(new z)}
+            \end{aligned}
+            $$
+        
+        - From now on, $x_1$ is our new **entering variable** (basic variable) and our new **departing variable** (non-basic variable) is $x_3$.
+
+        - Let's update our tableau:
+
+            | **Basis** |  $x_1$  | $x_2$ | $x_3$ |   $x_4$   |  **RHS**  |
+            |:---------:|:-------:|:-----:|:-----:|:---------:|:---------:|
+            |   $x_1$   |  $1$  |   $0$   |   $\frac{3}{2}$   |  $-2$  |  $1$  |
+            |   $x_2$   |  $0$  |   $1$   |   $-\frac{1}{2}$   |  $1$   |  $1$  |
+            |    $z$    |    $0$   |   $0$   |   $6$   |     $-4$     |    $20$     |
+
+            $$
+            \begin{aligned}
+            \text{Basis}: \space B &= \{ x_1, x_2 \} \\
+            \text{Non-Basis}: \space N &= \{ x_3, x_4 \}
+            \end{aligned}
+            $$
+    
+    **Iteration 3**
+    1. We still have a negative cost coefficent (look at $x_4$!), we should run our 3rd iteration. Since $x_4$ has $-4$ as a cost coefficient, our pivot column will be column $x_4$:
+    
+    2. As usual, use the minimum ratio test to compute each row's quotient:
+
+        - $\frac{1}{-2} = -\frac{1}{2}$
+        - $\frac{1}{1} = 1$
+    
+    3. Since $-\frac{1}{2} < 1$, do we define our row 1 as the pivot row as usual? NO! This is important: We should avoid negative quotients because increasing the entering variable will cause the corresponding basic variable to increase (move away from zero) rather than decrease toward zero. The minimum ratio test seeks the smallest positive quotient to ensure that increasing the entering variable drives some basic variable exactly to zero, maintaining non-negativity. Therefore, our pivot row will be the second row.
+
+    4. Let's select the pivot element and define our new entering/departing variables and update $B$ and $N$:
+
+        - Since our pivot element is already 1, we can directly rewrite our new entering variable $x_4$
+            - $x_4 = 1 - x_2 + \frac{1}{2}x_3$
+
+        - Rewrite other rows with our new $x_4$:
+
+            $$
+            \begin{aligned} \\
+            x_1 + \frac{3}{2}x_2 + 2x_4 &= 1 \\
+            x_1 + \frac{3}{2}x_2 + 2(1 - x_2 + \frac{1}{2}x_3) &= 1 \\
+            x_1 + \frac{3}{2}x_2 - 2 + 2x_2 - x_3 &= 1 \\
+            x_1 + 2x_2 + \frac{1}{2}x_3 &= 3 \quad \text{(new row 1)}
+            \end{aligned}
+            $$
+        
+        - Rewrite our $z$ with our new $x_4$:
+
+            $$
+            \begin{aligned} \\
+            z + 6x_3 - 4x_4 &= 20 \\
+            z + 6x_3 - 4(1 - x_2 + \frac{1}{2}x_3) &= 20 \\
+            z + 6x_3 - 4 + 4x_2 - 2x_3 &= 20 \\
+            z + 4x_2 + 4x_3 &= 24 \quad \text{(new z)}
+            \end{aligned}
+            $$
+
+        - At this moment, $x_4$ is our new **entering variable** and our new **departing variable** is $x_2$.
+
+        - Now let's update our final version of the tableau:
+        
+            | **Basis** |  $x_1$  | $x_2$ | $x_3$ |   $x_4$   |  **RHS**  |
+            |:---------:|:-------:|:-----:|:-----:|:---------:|:---------:|
+            |   $x_1$   |  $1$  |   $2$   |   $\frac{1}{2}$   |  $0$  |  $3$  |
+            |   $x_4$   |  $0$  |   $1$   |   $-\frac{1}{2}$   |  $1$   |  $1$  |
+            |    $z$    |    $0$   |   $4$   |   $4$   |     $0$     |    $24$     |
+
+            $$
+            \begin{aligned}
+            \text{Basis}: \space B &= \{ x_1, x_4 \} \\
+            \text{Non-Basis}: \space N &= \{ x_2, x_3 \}
+            \end{aligned}
+            $$
+
+5. Since all cost coefficents are non-negative, the current solution is optimal. The objective function can be written as:
+
+    $$z = 24 - 4x_2 - 4x_3$$
+
+    which achieves its maximum value $z = 24$ when $x_2, x_3 = 0$. At this point, the value of the basic variables are $x_1 = 3$ and $x_4 = 1$.
+
+    The basic variables states that:
+    - produce 3 units of $x_1$ (and $0$ units of $x_2$) to get maximized profit of $z = 24$
+    - the first constraint is tight (our slack variable $x_3 = 0$), so all of its capacity is fully utilized
+    - the second constraint has $1$ unit of slack ($x_4 = 1$), which states it's not fully binding
+
+    Thus, the optimal solution is:
+
+    $$(x_1, x_2, x_3, x_4) = (3, 0, 0, 1)$$
+
+    with objective value:
+
+    $$ z^{*} = 24. \space \blacksquare $$
 
 ---
 This summary is based on *Linear Programming Notes* [https://math.mit.edu/~goemans/18310S15/lpnotes310.pdf] by Michel Goemans, MIT
