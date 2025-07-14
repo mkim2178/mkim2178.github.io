@@ -249,4 +249,4 @@ $$
     $$ z^{*} = 24. \space \blacksquare $$
 
 ---
-This summary is based on *Linear Programming Notes* [https://math.mit.edu/~goemans/18310S15/lpnotes310.pdf] by Michel Goemans, MIT
+This summary is based on [*Linear Programming Notes*](https://math.mit.edu/~goemans/18310S15/lpnotes310.pdf) by Michel Goemans (MIT) and also follows ideas from [*Applied Finite Mathematics: The Simplex Method*](https://math.libretexts.org/Bookshelves/Applied_Mathematics/Applied_Finite_Mathematics_(Sekhon_and_Bloom)/04%3A_Linear_Programming_The_Simplex_Method/4.02%3A_Maximization_By_The_Simplex_Method) at LibreTexts.
