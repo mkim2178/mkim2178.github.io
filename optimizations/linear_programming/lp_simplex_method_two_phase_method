@@ -1,0 +1,31 @@
+---
+layout: default
+title: "Linear Programming: Minimization Using the Two-Phase Simplex Method (≥ and = constraints)"
+---
+
+
+** ⚠️ Work in Progress: This note is currently being updated!
+
+
+outline of the note:
+
+≥ -> subtract surplus and add artificial
+= -> add artificial
+
+
+phase 1: solve for artificial problem
+
+w = a_1 + a_2 (rewrite this with x_1, x_2, s_2)
+
+simplex
+
+if w = 0 -> go phase 2, otherwise, this problem is infeasible (stop)
+
+phase 2
+
+re-write z with non-basic variable
+
+simplex
+
+write optimal solutions
+
